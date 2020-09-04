@@ -1,47 +1,25 @@
-const card = document.querySelector(".card");
+const card = document.querySelector('.card');
 
 // Make the DIV element draggable:
-dragElement(card);
 
-function dragElement(elmnt) {
-  var pos1 = 0,
-    pos2 = 0,
-    pos3 = 0,
-    pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-
-    // set position apsolute
-    card.classList.add("dragged");
-
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+function dragElement(el) {
+  let pos1 = 0;
+  let pos2 = 0;
+  let pos3 = 0;
+  let pos4 = 0;
+  const element = el;
 
   function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
+    const event = e || window.event;
+    event.preventDefault();
     // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+    pos1 = pos3 - event.clientX;
+    pos2 = pos4 - event.clientY;
+    pos3 = event.clientX;
+    pos4 = event.clientY;
     // set the element's new position:
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    element.style.top = `${element.offsetTop - pos2}px`;
+    element.style.left = `${element.offsetLeft - pos1}px`;
   }
 
   function closeDragElement() {
@@ -49,12 +27,37 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
 
-    card.classList.remove("dragged");
+    card.classList.remove('dragged');
     pos1 = 0;
     pos2 = 0;
     pos3 = 0;
     pos4 = 0;
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    element.style.top = `${element.offsetTop - pos2}px`;
+    element.style.left = `${element.offsetLeft - pos1}px`;
+  }
+
+  function dragMouseDown(e) {
+    const event = e || window.event;
+    event.preventDefault();
+
+    // set position apsolute
+    card.classList.add('dragged');
+
+    // get the mouse cursor position at startup:
+    pos3 = event.clientX;
+    pos4 = event.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  if (document.getElementById(`${element.id}header`)) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(`${element.id}header`).onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    element.onmousedown = dragMouseDown;
   }
 }
+
+dragElement(card);
