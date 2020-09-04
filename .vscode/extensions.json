@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "coenraads.bracket-pair-colorizer",
+    "spook.easysass",
+    "waderyan.gitblame",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "shan.code-settings-sync",
+    "pkief.material-icon-theme",
+    "ritwickdey.liveserver"
+  ]
+}
