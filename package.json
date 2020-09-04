@@ -1,0 +1,25 @@
+{
+  "name": "reusablecomponents",
+  "version": "1.0.0",
+  "description": "This is an easy project for new developers who would like to learn how to do real components.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LongDevs/ReusableComponents.git"
+  },
+  "keywords": [
+    "components",
+    "react",
+    "vue",
+    "sass",
+    "npm"
+  ],
+  "author": "Piotr Pieprzyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LongDevs/ReusableComponents/issues"
+  },
+  "homepage": "https://github.com/LongDevs/ReusableComponents#readme"
+}
