@@ -3,7 +3,6 @@ const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -66,7 +65,6 @@ module.exports = {
     new PurgecssPlugin({
       paths: glob.sync(`${resolve(__dirname, 'simple')}/**/*`, { nodir: true }),
     }),
-    // new CleanWebpackPlugin(),
   ],
   devServer: {
     contentBase: resolve(__dirname, 'build'),
