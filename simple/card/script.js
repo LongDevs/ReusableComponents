@@ -1,6 +1,25 @@
+import './style.scss';
+import gsap from 'gsap';
+
 const card = document.querySelector('.card');
 
 // Make the DIV element draggable:
+
+const elevateUp = () => {
+  gsap.to(card, {
+    boxShadow: ' 0px -6px 30px rgba(0, 0, 0, 0.178)',
+    duration: 0.2,
+    position: 'absolute',
+  });
+};
+
+const elevateDown = () => {
+  gsap.to(card, {
+    boxShadow: '0px -1px 10px rgba(0, 0, 0, 0.089)',
+    duration: 0.2,
+    position: 'relative',
+  });
+};
 
 function dragElement(el) {
   let pos1 = 0;
@@ -27,7 +46,8 @@ function dragElement(el) {
     document.onmouseup = null;
     document.onmousemove = null;
 
-    card.classList.remove('dragged');
+    elevateDown(card);
+
     pos1 = 0;
     pos2 = 0;
     pos3 = 0;
@@ -41,7 +61,7 @@ function dragElement(el) {
     event.preventDefault();
 
     // set position apsolute
-    card.classList.add('dragged');
+    elevateUp(card);
 
     // get the mouse cursor position at startup:
     pos3 = event.clientX;
