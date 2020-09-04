@@ -7,7 +7,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    card: './simple/card/script.js',
+    card: './components/card/script.js',
   },
   output: {
     filename: './js/[name].js',
@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'simple/card/index.html'),
+      template: resolve(__dirname, 'components/card/index.html'),
       chunks: ['card'],
       filename: resolve(__dirname, 'build/card.html'),
     }),
@@ -63,7 +63,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new PurgecssPlugin({
-      paths: glob.sync(`${resolve(__dirname, 'simple')}/**/*`, { nodir: true }),
+      paths: glob.sync(`${resolve(__dirname, 'components')}/**/*`, { nodir: true }),
     }),
   ],
   devServer: {
