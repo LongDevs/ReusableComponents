@@ -7,7 +7,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    card: './components/card/script.js',
+    index: './src/index.js',
   },
   output: {
     filename: './js/[name].js',
@@ -52,9 +52,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'components/card/index.html'),
-      chunks: ['card'],
-      filename: resolve(__dirname, 'build/card.html'),
+      template: resolve(__dirname, 'src/index.html'),
+      chunks: ['index'],
+      filename: resolve(__dirname, 'build/index.html'),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -63,7 +63,10 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
     new PurgecssPlugin({
-      paths: glob.sync(`${resolve(__dirname, 'components')}/**/*`, { nodir: true }),
+      paths: glob.sync(`${resolve(__dirname, 'src')}/*`, {
+        nodir: true,
+      }),
+      content: ['./src/index.html'],
     }),
   ],
   devServer: {
