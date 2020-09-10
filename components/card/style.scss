@@ -1,14 +1,129 @@
-.card {
-  width: 100px;
-  height: 100px;
-  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.089);
-  border-radius: 10px;
-  padding: 16px;
-  box-sizing: border-box;
-  background: grey;
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-.dragged {
-  box-shadow: 0px -6px 30px rgba(0, 0, 0, 0.178);
-  position: absolute;
+
+
+body {
+    background-color: #adadad;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.card {
+    width: 344px;
+    background-color:  rgb(228, 228, 228);
+    box-shadow: 3px 3px grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.big_header {
+    width: 344px;
+    display: flex;
+    justify-items: center;
+}
+
+
+.big_header .header {
+    align-items: flex-start;
+    display: flex;
+    background-color: rgb(228, 228, 228);
+    width: 328px;
+    padding: 16px 16px;
+}
+
+.header .icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon .rocket_icon {
+    width: 100%;
+    height: auto;
+}
+
+.header .title {
+    padding: 0px 8px;
+}
+
+
+
+.main_img {
+    width: 344px;
+    height: 194px;
+}
+
+
+.underimg_txt {
+    padding: 16px 16px;
+}
+
+
+.footer {
+    display: flex;
+    padding: 8px 8px;
+}
+
+
+.footer .footer_left {
+    display: flex;
+}
+
+
+.footer_left .buttons {
+   padding: 8px 16px;
+   margin-right: 8px;
+   color: rgb(162, 0, 255);
+   border: none;
+   background: none;
+}
+
+
+.footer_right {
+    display: flex;
+    margin-left: auto;
+}
+
+
+.footer_right .links {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    padding: 8px 8px;
+}
+
+
+
+.card .header .bottom_text {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 36px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+.card .header .down_text {
+    font-family:'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: rgba(0, 0, 0, 0.6);
 }
